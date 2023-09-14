@@ -1,0 +1,72 @@
+# Ignorar directorios generados
+node_modules/
+ios/Pods/
+android/app/build/
+
+# Ignorar archivos de construcción
+ios/build/
+android/app/build/
+android/build/
+android/gradle/
+android/local.properties
+android/app/.externalNativeBuild
+
+# Ignorar archivos de configuración local (cambia los valores según tus necesidades)
+.env.local
+.env.development
+.env.production
+
+# Ignorar archivos temporales y logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+
+# Ignorar archivos de usuario
+.idea/
+.vscode/
+.DS_Store
+.env
+.env.local
+*.iml
+*.orig
+*.swp
+*.lock
+*.bak
+*~
+
+# Ignorar archivos generados en tiempo de ejecución
+*.pbxuser
+*.xcworkspace
+*.xcuserdatad
+*.lock
+*.log
+*.DSYM.zip
+
+# Ignorar archivos de almacenamiento de dependencias
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignorar archivos de cache de eslint
+.eslintcache
+
+# Ignorar archivos generados por Jest
+/__tests__/coverage/
+__tests__/jest-haste-map*
+
+# Ignorar el archivo de configuración de TypeScript
+tsconfig.json
+
+# Ignorar el archivo de configuración de Metro Bundler
+metro.config.js
+
+# Ignorar archivos temporales y de respaldo de editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
