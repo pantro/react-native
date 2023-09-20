@@ -46,7 +46,7 @@ const App: React.FC = () => {
       }
     } else {
       // En iOS, no es necesario solicitar permisos específicos en tiempo de ejecución
-      Geolocation.watchPosition(
+      Geolocation.getCurrentPosition(
         (position) => {
           console.log('** Ubicación actualizada:', position.coords);
           setLocation(position.coords);
@@ -54,7 +54,7 @@ const App: React.FC = () => {
         (error) => {
           console.error(error);
         },
-        { enableHighAccuracy: true }
+        { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
       );
     }
   };
@@ -96,7 +96,7 @@ const App: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.locationTitle}>Ubicación actual:</Text>
+      <Text style={styles.locationTitle}>Ubicación actual (test2):</Text>
       {location && (
         <>
           <Text style={styles.locationText}>Latitud: {location.latitude}</Text>
