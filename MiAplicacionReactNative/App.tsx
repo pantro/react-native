@@ -7,11 +7,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, Platform, PermissionsAndroid, StyleSheet } from 'react-native';
-import Geolocation, { GeoCoordinates } from 'react-native-geolocation-service';
+//import Geolocation, { GeoCoordinates } from 'react-native-geolocation-service';
+import Geolocation from '@react-native-community/geolocation';
 import RNFS from 'react-native-fs';
 
 const App: React.FC = () => {
-  const [location, setLocation] = useState<GeoCoordinates | null>(null);
+  //const [location, setLocation] = useState<GeoCoordinates | null>(null);
+  const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
   const [cont, setCont] = useState(1);
 
   const getLocation = async () => {
@@ -28,14 +30,18 @@ const App: React.FC = () => {
 
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
           // Permisos otorgados, puedes acceder a la ubicación.
+          //Geolocation.getCurrentPosition(
           Geolocation.watchPosition(
             (position) => {
               console.log('** Ubicación actualizada:', position.coords);
-              setLocation(position.coords);
+              //setLocation(position.coords);
+              const { latitude, longitude } = position.coords;
+              setLocation({ latitude, longitude });
             },
             (error) => {
               console.error(error);
             },
+            //{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1 }
             { enableHighAccuracy: true }
           );
         } else {
@@ -46,15 +52,19 @@ const App: React.FC = () => {
       }
     } else {
       // En iOS, no es necesario solicitar permisos específicos en tiempo de ejecución
-      Geolocation.getCurrentPosition(
+      //Geolocation.getCurrentPosition(
+      Geolocation.watchPosition(
         (position) => {
           console.log('** Ubicación actualizada:', position.coords);
-          setLocation(position.coords);
+          //setLocation(position.coords);
+          const { latitude, longitude } = position.coords;
+          setLocation({ latitude, longitude });
         },
         (error) => {
           console.error(error);
         },
-        { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
+        //{ enableHighAccuracy: true, timeout: 20000, maximumAge: 1 }
+        { enableHighAccuracy: true }
       );
     }
   };
@@ -96,7 +106,7 @@ const App: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.locationTitle}>Ubicación actual (test2):</Text>
+      <Text style={styles.locationTitle}>Ubicación actual (test66):</Text>
       {location && (
         <>
           <Text style={styles.locationText}>Latitud: {location.latitude}</Text>
