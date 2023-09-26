@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
+        position: 'relative',
     },
     map: {
         flex: 1,
@@ -18,6 +19,10 @@ export const styles = StyleSheet.create({
         fontSize: 18,
     },
     locationButton: {
-        margin: 10,
+        position: 'absolute',
+        bottom: 0,
+        padding: 10,
+        marginBottom: 10,
+        backgroundColor: '#6ED4C8',
     },
 });

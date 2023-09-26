@@ -21,10 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.pantro.GPSmap",
+      "permissions": "ACCESS_FINE_LOCATION"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "78229a66-9807-44f3-ba5c-54ab4b54dd81"
+      }
     }
   }
 }
